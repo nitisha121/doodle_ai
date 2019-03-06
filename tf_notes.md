@@ -7,6 +7,7 @@
 - exponential function is steeply increasing -> will increase differences between the elements of the vector and quickly produce large values.
 - when you normalise the vector largest element will be normalised to a value close to 1 while all the other elements will end up divided by a large value and normalised to something close to 0
 - resulting vector clearly shows which was its largest element, the "max", but retains the original relative order of its values, hence the "soft"
+- keep as activation fcn on last layer, works best for classifying 
 
 
 - __epoch__: 50,000 training images -> feed 100 into training loop at once for 500 iterations
