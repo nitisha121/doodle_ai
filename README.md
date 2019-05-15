@@ -25,6 +25,15 @@ The purpose of this project was to transpose my doodling style onto simple image
     </tr>
 </table>
 
+**C**: An image of a flower 
+**S**: Doodle of an elephant
+**G** (generated): Flower image - more greyscale and some transposed details. 
+
 ## How does Style Transfer Work?
 
-
+The NST algorithm:
+- Image is inputted into CNN 
+- Activation values are sampled in a late layer of the model and stored in a Gram Matrix 
+- The Style image cost and the Content image cost are calculated to sum to total cost
+- The total cost of each generated image G is calculated and minimized at each iteration 
+- The generated image G is optimized until max number of iterations specified is reached
