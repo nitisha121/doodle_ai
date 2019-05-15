@@ -7,7 +7,7 @@
 - exponential function is steeply increasing -> will increase differences between the elements of the vector and quickly produce large values.
 - when you normalise the vector largest element will be normalised to a value close to 1 while all the other elements will end up divided by a large value and normalised to something close to 0
 - resulting vector clearly shows which was its largest element, the "max", but retains the original relative order of its values, hence the "soft"
-- keep as activation fcn on last layer, works best for classifying 
+- keep as activation fcn on last layer, works best for classifying
 
 
 - __epoch__: 50,000 training images -> feed 100 into training loop at once for 500 iterations
@@ -40,3 +40,20 @@ __Learning rate:__ The magnitude of the fraction of the gradient that you move d
 
 Training loop:
 Training digits and labels => loss function => gradient (partial derivatives) => steepest descent => update weights and biases => repeat with next mini-batch of training images and labels
+
+
+Tensorflow's deferred execution model: static graph for sequence of computation.
+
+- For final layers: using sigmoid (steep on zero, steep on 1) vs. softmax is the same for binary classifying, but for multi-classification (use softmax - probabilities add to 1)
+- For intermediate layers, ReLU (rectified learning unit) [tf.nn.relu vs tf.nn.sigmoid] is a good activation fcn for intermediate layers
+
+##### Optimizer
+
+In high dim spaces, there are 'saddle points' where they aren't local minima but gradient is zero. tf optimizers will safely overlook these.
+Usually tf.train.AdamOptimizer > tf.train.GradientDescentOptimiser.
+
+- If you see NaNs in your output, add tf.nn.softmax_cross_entropy_with_logits to your code.
+- adjust learning rate with fractions: lr = 0.0001 + tf.train.exponential_decay(0.003, step, 2000, 1/math.e)
+
+
+When you notice __overfitting__ use a regularization technique called __dropout__: drop random neurons at each iteration of the training loop, choose a probability for a neuron to be kept (b/w 50-75%). Overfitting can be caused by bad network / not enough data / too many neurons.
