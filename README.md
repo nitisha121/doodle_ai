@@ -5,4 +5,26 @@ Resources: <a href="https://www.coursera.org/learn/convolutional-neural-networks
 
 Neural Style Transfer (NST) is an artistic use of Convolutional Neural Networks that allows for the merge of a content image C and a style image S. An example of its use is shown below: 
 
-![alt text]("https://github.com/nitisha121/doodle_ai/style_transfer/images/example_circle.png")
+![alt text]("https://github.com/nitisha121/doodle_ai/blob/master/style_transfer/images/example_circle.PNG")
+
+We used a pre-trained ConvNet model with 19 layers -  <a href="http://www.vlfeat.org/matconvnet/pretrained/">VGG-19</a> - which is stored as a Python dictionary -- key:variable name, value: tensor with variable value. 
+
+The purpose of this project was to transpose my doodling style onto simple images, such as flowers. This is one of the earlier examples:
+
+<table align="center">
+    <tr>
+        <td>
+            <img src="https://github.com/nitisha121/doodle_ai/blob/master/style_transfer/images/elephant_scaled.jpg " width="400px">
+        </td>
+        <td>
+            <img src="https://github.com/nitisha121/doodle_ai/blob/master/content/pink_flower.jpg" width="400px">
+        </td>
+        <td>
+            <img src="https://github.com/nitisha121/doodle_ai/blob/master/output/generated_image_nini.jpg" width="400px">
+        </td>
+    </tr>
+</table>
+
+## How does Style Transfer Work?
+
+
