@@ -1,9 +1,13 @@
 # Doodle AI NST
 
 Contributors: Amirmehdi Sharifzad & Nitisha Agarwal 
-Resources: <a href="https://www.coursera.org/learn/convolutional-neural-networks/home/welcome">Coursera CNN course</a>, <a href="https://arxiv.org/pdf/1508.06576.pdf">Gatsy's NST Algorithm</a>
+Resources: <a href="https://www.coursera.org/learn/convolutional-neural-networks/home/welcome">Coursera CNN course</a>, <a href="https://arxiv.org/pdf/1508.06576.pdf">Gatsy's NST Algorithm</a>, <a href="https://www.tensorflow.org/alpha/tutorials/generative/style_transfer">TensorFlow style transfer</a>
 
-Neural Style Transfer (NST) is an artistic use of Convolutional Neural Networks that allows for the merge of a content image C and a style image S. An example of its use is shown below: 
+Neural style transfer is an optimization technique used to take two images—a content image C and a style reference image S and blend them together so the output image looks like the content image, but “painted” in the style of the style reference image.
+
+This is implemented by optimizing the output image to match the content statistics of the content image and the style statistics of the style reference image. These statistics are extracted from the images using a convolutional network.
+
+An example of its use is shown below: 
 
 <img src="https://github.com/nitisha121/doodle_ai/blob/master/style_transfer/images/ex_cnn.PNG">
 
@@ -32,8 +36,8 @@ The purpose of this project was to transpose my doodling style onto simple image
 ## How does Style Transfer Work?
 
 The NST algorithm:
-- Image is inputted into CNN 
-- Activation values are sampled in a late layer of the model and stored in a Gram Matrix 
+- Images are inputted into CNN 
+- Intermediate layers of the model is used to get the content and style representations of the image. 
 - The Style image cost and the Content image cost are calculated to sum to total cost
 - The total cost of each generated image G is calculated and minimized at each iteration 
 - The generated image G is optimized until max number of iterations specified is reached
